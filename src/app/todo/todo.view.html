@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="todolist not-done">
+             <h1>Todos</h1>
+                <input type="text" [(ngModel)]="model.title" (keyup.enter)="add()" class="form-control add-todo" placeholder="Add todo">
+                    <button id="checkAll" class="btn btn-success" (click)="markAllCompleted()">Mark all as done</button>
+                    
+                    <hr>
+                    <ul *ngIf="todos" id="sortable" class="list-unstyled">
+                    <li *ngFor="let todo of todos; let i = index" class="ui-state-default">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" [(ngModel)]="todo.completed" value="{{todo.title}}" />
+                                {{todo.title}}</label><br>
+                                {{todo.completed}}
+                        </div>
+                    </li>
+                </ul>
+                <div class="todo-footer">
+                    <strong><span class="count-todos"></span></strong> Items Left {{getByStatus(false).length}}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="todolist" *ngIf="getByStatus(true)">
+             <h1>Already Done</h1>
+                <ul id="done-items" class="list-unstyled" *ngFor="let ctodo of getByStatus(true)">
+                    <li>{{ctodo.title}}</li>                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
