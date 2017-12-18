@@ -1,10 +1,10 @@
 import { TodoModel } from "./todo.model";
-import { Component, OnInit } from "@angular/core";
-import { LogService } from "../log.service";
+import { Component, OnInit } from "@angular/core"
+import { LogService } from "../service/log.service";
 
 @Component({
     selector:'todo-ui',
-    templateUrl:'./src/app/todo/todo.view.html'
+    templateUrl:'./todo.view.html'
 })
 export class TodoComponent implements OnInit{
     todos:Array<TodoModel>;
